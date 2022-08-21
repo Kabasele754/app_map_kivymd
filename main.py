@@ -12,6 +12,8 @@ from kivymd.uix.screen import MDScreen
 
 KV = '''
 #:import FadeTransition kivy.uix.screenmanager.FadeTransition
+#: import MapView,MapSource kivy_garden.mapview
+
 
 
 <ExtendedButton>
@@ -78,8 +80,22 @@ MDScreen:
 
                         ScreenManager:
                             id: screen_manager
-                            transition:
-                                FadeTransition(duration=.2, clearcolor=app.theme_cls.bg_dark)
+                            Screen:
+                                name: "screen2"
+                                BoxLayout:
+                                    MapView:
+                                        lat:-11.6843854
+                                        lon:27.4758589
+                                        zoom:5
+                                        #on_zoom:
+                                            #self.zoom = 3 if self.zoom < 12 else self.zoom
+                                        #map_source:"osm"
+                                        MapMarkerPopup:
+                                            source:"image/marker.png"
+                                            lat: -11.6843854
+                                            lon: 27.4758589
+                                            popup_size: 400,320
+                           
 
     MDNavigationDrawer:
         id: nav_drawer
@@ -163,34 +179,34 @@ class Example(MDApp):
         Called when tapping on rail menu items. Switches application screens.
         '''
 
-        self.root.ids.screen_manager.current = (
-            instance_navigation_rail_item.icon.split("-")[1].lower()
-        )
+        #self.root.ids.screen_manager.current = (
+            #instance_navigation_rail_item.icon.split("-")[1].lower()
+        #)
 
-    def on_start(self):
-        '''Creates application screens.'''
+    # def on_start(self):
+    #     '''Creates application screens.'''
 
-        navigation_rail_items = self.root.ids.navigation_rail.get_items()[:]
-        navigation_rail_items.reverse()
+    #     navigation_rail_items = self.root.ids.navigation_rail.get_items()[:]
+    #     navigation_rail_items.reverse()
 
-        for widget in navigation_rail_items:
-            name_screen = widget.icon.split("-")[1].lower()
-            screen = MDScreen(
-                name=name_screen,
-                md_bg_color="#edd769",
-                radius=[18, 0, 0, 0],
-            )
-            box = MDBoxLayout(padding="12dp")
-            label = MDLabel(
-                text=name_screen.capitalize(),
-                font_style="H1",
-                halign="right",
-                adaptive_height=True,
-                shorten=True,
-            )
-            box.add_widget(label)
-            screen.add_widget(box)
-            self.root.ids.screen_manager.add_widget(screen)
+    #     for widget in navigation_rail_items:
+    #         name_screen = widget.icon.split("-")[1].lower()
+    #         screen = MDScreen(
+    #             name=name_screen,
+    #             md_bg_color="#edd769",
+    #             #radius=[10, 0, 0, 0],
+    #         )
+    #         box = MDBoxLayout(padding="12dp")
+    #         label = MDLabel(
+    #             text=name_screen.capitalize(),
+    #             font_style="H1",
+    #             halign="right",
+    #             adaptive_height=True,
+    #             shorten=True,
+    #         )
+    #         box.add_widget(label)
+    #         screen.add_widget(box)
+    #         self.root.ids.screen_manager.add_widget(screen)
 
 
 Example().run()

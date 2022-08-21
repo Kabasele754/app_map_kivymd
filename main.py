@@ -37,15 +37,7 @@ MDScreen:
                 MDBoxLayout:
                     orientation: "vertical"
 
-                    MDBoxLayout:
-                        adaptive_height: True
-                        md_bg_color: "#fffcf4"
-                        padding: "12dp"
-
-                        MDLabel:
-                            text: "12:00"
-                            adaptive_height: True
-                            pos_hint: {"center_y": .5}
+                   
 
                     MDBoxLayout:
 
@@ -63,20 +55,23 @@ MDScreen:
                                 md_bg_color: "#b0f0d6"
 
                             MDNavigationRailItem:
-                                text: "Python"
-                                icon: "language-python"
+                                text: "Itinaire"
+                                icon: "open-source-initiative"
 
                             MDNavigationRailItem:
-                                text: "JavaScript"
-                                icon: "language-javascript"
+                                text: "Position"
+                                icon: "google-maps"
 
                             MDNavigationRailItem:
-                                text: "CPP"
-                                icon: "language-cpp"
+                                text: "Trafic"
+                                icon: "bus-marker"
 
                             MDNavigationRailItem:
-                                text: "Swift"
-                                icon: "language-swift"
+                                text: "Coffee"
+                                icon: "coffee"
+                            MDNavigationRailItem:
+                                text: "Human"
+                                icon: "human-male-female"
 
                         ScreenManager:
                             id: screen_manager
@@ -86,15 +81,26 @@ MDScreen:
                                     MapView:
                                         lat:-11.6843854
                                         lon:27.4758589
-                                        zoom:5
+                                        zoom:14
                                         #on_zoom:
                                             #self.zoom = 3 if self.zoom < 12 else self.zoom
                                         #map_source:"osm"
                                         MapMarkerPopup:
-                                            source:"image/marker.png"
+                                            source:"images/marker.png"
                                             lat: -11.6843854
                                             lon: 27.4758589
                                             popup_size: 400,320
+                                        MapMarkerPopup:
+                                            source:"images/marker.png"
+                                            lat: -11.6749507
+                                            lon: 27.4671683
+                                            popup_size: 400,320   
+                                        
+                                        MapMarkerPopup:
+                                            source:"images/marker.png"
+                                            lat: -11.6820316
+                                            lon: 27.4814562
+                                            popup_size: 400,320  
                            
 
     MDNavigationDrawer:

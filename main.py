@@ -48,11 +48,14 @@ MDScreen:
                             ripple_color_item: "#e7e4c0"
                             on_item_release: app.switch_screen(*args)
 
-                            MDNavigationRailMenuButton:
-                                on_release: nav_drawer.set_state("open")
+                            #MDNavigationRailMenuButton:
+                                #on_release: nav_drawer.set_state("open")
 
-                            MDNavigationRailFabButton:
-                                md_bg_color: "#b0f0d6"
+                            MDNavigationRailItem:
+                                #md_bg_color: "#b0f0d6"
+                                text: "Distance"
+                                icon: "map-marker-distance"
+                                
 
                             MDNavigationRailItem:
                                 text: "Itinaire"
@@ -70,8 +73,15 @@ MDScreen:
                                 text: "Coffee"
                                 icon: "coffee"
                             MDNavigationRailItem:
+                                text: "Direction"
+                                icon: "directions-fork"
+                            MDNavigationRailItem:
                                 text: "Human"
                                 icon: "human-male-female"
+                            MDNavigationRailItem:
+                                text: "Proximité"
+                                icon: "map-marker-radius"
+                            
 
                         ScreenManager:
                             id: screen_manager
@@ -174,6 +184,7 @@ class ExtendedButton(
 
 class Example(MDApp):
     def build(self):
+        self.title = "Maps country"
         self.theme_cls.material_style = "M3"
         self.theme_cls.primary_palette = "Orange"
         return Builder.load_string(KV)

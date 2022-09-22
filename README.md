@@ -1,6 +1,6 @@
 # Contry Maps
 
-<img src="images/ContryMap.png" width="150" height="100">
+<img src="images/ContryMap.png" width="300" height="100">
 
 
 

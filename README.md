@@ -1,7 +1,7 @@
 # Contry Maps
 
-<img src="/images/ContryMap.PNG" width="300" height="100">
+<img src="/images/ContryMap.PNG" width="500" height="500">
 
-![My Image](../images/ContryMap.png)
+![My Image](../images/ContryMap.PNG)
 
 

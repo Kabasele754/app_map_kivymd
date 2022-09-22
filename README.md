@@ -1,5 +1,5 @@
 # Contry Maps
 
-<img src="app_map_kivy\images\ContryMap.png" width="300" height="100">
+<img src="/images/ContryMap.png" width="300" height="100">
 
 

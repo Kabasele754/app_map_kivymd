@@ -2,7 +2,7 @@ from kivymd.uix.screen import MDScreen
 from kivy.lang import Builder
 
 # read kivy file 
-Builder.load_file('libs/uix/screen_map.kv')
+Builder.load_file('libs/uix/kv/screen_map.kv')
 
 
 

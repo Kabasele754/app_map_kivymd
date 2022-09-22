@@ -1,0 +1,128 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+#: import MapView,MapSource kivy_garden.mapview
+
+<ScreenMaps>:
+    
+    MDNavigationLayout:
+
+        ScreenManager:
+
+            MDScreen:
+
+                MDBoxLayout:
+                    orientation: "vertical"
+
+                   
+
+                    MDBoxLayout:
+
+                        MDNavigationRail:
+                            id: navigation_rail
+                            md_bg_color: "#fffcf4"
+                            selected_color_background: "#e7e4c0"
+                            ripple_color_item: "#e7e4c0"
+                            on_item_release: app.switch_screen(*args)
+
+                            #MDNavigationRailMenuButton:
+                                #on_release: nav_drawer.set_state("open")
+
+                            MDNavigationRailItem:
+                                #md_bg_color: "#b0f0d6"
+                                text: "Distance"
+                                icon: "map-marker-distance"
+                                
+
+                            MDNavigationRailItem:
+                                text: "Itinaire"
+                                icon: "open-source-initiative"
+
+                            MDNavigationRailItem:
+                                text: "Position"
+                                icon: "google-maps"
+
+                            MDNavigationRailItem:
+                                text: "Trafic"
+                                icon: "bus-marker"
+
+                            MDNavigationRailItem:
+                                text: "Coffee"
+                                icon: "coffee"
+                            MDNavigationRailItem:
+                                text: "Direction"
+                                icon: "directions-fork"
+                            MDNavigationRailItem:
+                                text: "Human"
+                                icon: "human-male-female"
+                            MDNavigationRailItem:
+                                text: "Proximité"
+                                icon: "map-marker-radius"
+                            
+
+                        ScreenManager:
+                            id: screen_manager
+                            Screen:
+                                name: "screen2"
+                                BoxLayout:
+                                    MapView:
+                                        lat:-11.6843854
+                                        lon:27.4758589
+                                        zoom:14
+                                        #on_zoom:
+                                            #self.zoom = 3 if self.zoom < 12 else self.zoom
+                                        #map_source:"osm"
+                                        MapMarkerPopup:
+                                            source:"images/marker.png"
+                                            lat: -11.6843854
+                                            lon: 27.4758589
+                                            popup_size: 400,320
+                                        MapMarkerPopup:
+                                            source:"images/marker.png"
+                                            lat: -11.6749507
+                                            lon: 27.4671683
+                                            popup_size: 400,320   
+                                        
+                                        MapMarkerPopup:
+                                            source:"images/marker.png"
+                                            lat: -11.6820316
+                                            lon: 27.4814562
+                                            popup_size: 400,320  
+                           
+
+    MDNavigationDrawer:
+        id: nav_drawer
+        radius: (0, 16, 16, 0)
+        md_bg_color: "#fffcf4"
+        elevation: 12
+        width: "240dp"
+
+        MDNavigationDrawerMenu:
+
+            MDBoxLayout:
+                orientation: "vertical"
+                adaptive_height: True
+                spacing: "12dp"
+                padding: 0, 0, 0, "12dp"
+
+                MDIconButton:
+                    icon: "menu"
+
+                ExtendedButton:
+                    text: "Compose"
+                    icon: "pencil"
+
+            DrawerClickableItem:
+                text: "Python"
+                icon: "language-python"
+
+            DrawerClickableItem:
+                text: "JavaScript"
+                icon: "language-javascript"
+
+            DrawerClickableItem:
+                text: "CPP"
+                icon: "language-cpp"
+
+            DrawerClickableItem:
+                text: "Swift"
+                icon: "language-swift"
+

@@ -182,7 +182,7 @@ class ExtendedButton(
             self._radius = self.radius = self.height / 4
 
 
-class Example(MDApp):
+class ContryMap(MDApp):
     def build(self):
         self.title = "Maps country"
         self.theme_cls.material_style = "M3"
@@ -225,5 +225,5 @@ class Example(MDApp):
     #         screen.add_widget(box)
     #         self.root.ids.screen_manager.add_widget(screen)
 
-
-Example().run()
+if __name__=="__main__":
+    ContryMap().run()
